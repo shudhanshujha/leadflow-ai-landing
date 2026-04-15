@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Sparkles, Target, Zap, TrendingUp, Shield } from 'lucide-react';
+import { ArrowRight, Sparkles, Target, Zap, Shield } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
