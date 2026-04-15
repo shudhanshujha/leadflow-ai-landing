@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
       zIndex: 1000, 
       transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
       padding: scrolled ? '0.75rem 0' : '1.25rem 0',
-      background: scrolled ? 'rgba(3, 3, 3, 0.9)' : 'transparent',
+      background: scrolled ? 'rgba(3, 3, 3, 0.95)' : 'transparent',
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
       borderBottom: scrolled ? '1px solid var(--glass-border)' : '1px solid transparent'
     }}>
@@ -50,9 +50,9 @@ const Navbar: React.FC = () => {
           <span style={{ letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>LeadFlow <span className="gradient-text">AI</span></span>
         </div>
 
-        {/* Desktop Links */}
-        <div className="nav-links" style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }}>
-          {['Features', 'How it Works', 'Pricing', 'Testimonials'].map((item) => (
+        {/* Links hidden on mobile via CSS class */}
+        <div className="nav-links-desktop" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+          {['Features', 'How it Works', 'Pricing'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase().replace(/ /g, '-')}`} 
@@ -61,35 +61,21 @@ const Navbar: React.FC = () => {
                 fontWeight: '600', 
                 color: 'var(--text-muted)', 
                 transition: 'color 0.3s ease',
-                position: 'relative'
+                textDecoration: 'none'
               }}
-              className="nav-item"
             >
               {item}
             </a>
           ))}
-          <button className="btn-premium" style={{ padding: '0.6rem 1.5rem', fontSize: '0.85rem' }}>
-            Book Demo
+          <button className="btn-premium" style={{ padding: '0.5rem 1.25rem', fontSize: '0.8rem' }}>
+            Book Appointment
           </button>
         </div>
       </div>
 
       <style>{`
-        .nav-item:hover { color: white !important; }
-        .nav-item::after {
-          content: '';
-          position: absolute;
-          bottom: -4px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: linear-gradient(90deg, var(--primary), var(--secondary));
-          transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .nav-item:hover::after { width: 100%; }
-        
-        @media (max-width: 1024px) {
-          .nav-links { display: none !important; }
+        @media (max-width: 900px) {
+          .nav-links-desktop { display: none !important; }
         }
       `}</style>
     </nav>
