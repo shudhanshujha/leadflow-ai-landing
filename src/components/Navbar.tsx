@@ -7,6 +7,14 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -66,24 +74,38 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="mobile-toggle" style={{ display: 'none', cursor: 'pointer', flexDirection: 'column', gap: '6px', width: '30px', zIndex: 1001, position: 'relative' }} onClick={() => setIsOpen(!isOpen)}>
+        <div className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
           <motion.span
-            animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 8 : 0 }}
-            style={{ width: '100%', height: '2px', background: 'white', display: 'block', transformOrigin: 'center', willChange: 'transform' }}
+            animate={{ 
+              rotate: isOpen ? 45 : 0, 
+              y: isOpen ? 8 : 0,
+              backgroundColor: isOpen ? '#ffffff' : '#ffffff'
+            }}
+            transition={{ duration: 0.3 }}
+            style={{ width: '100%', height: '2px', background: 'white', display: 'block', transformOrigin: 'center' }}
           />
           <motion.span
-            animate={{ opacity: isOpen ? 0 : 1 }}
-            style={{ width: '100%', height: '2px', background: 'white', display: 'block', willChange: 'opacity' }}
+            animate={{ 
+              opacity: isOpen ? 0 : 1,
+              x: isOpen ? 20 : 0
+            }}
+            transition={{ duration: 0.3 }}
+            style={{ width: '100%', height: '2px', background: 'white', display: 'block' }}
           />
           <motion.span
-            animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -8 : 0 }}
-            style={{ width: '100%', height: '2px', background: 'white', display: 'block', transformOrigin: 'center', willChange: 'transform' }}
+            animate={{ 
+              rotate: isOpen ? -45 : 0, 
+              y: isOpen ? -8 : 0,
+              backgroundColor: isOpen ? '#ffffff' : '#ffffff'
+            }}
+            transition={{ duration: 0.3 }}
+            style={{ width: '100%', height: '2px', background: 'white', display: 'block', transformOrigin: 'center' }}
           />
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {isOpen && (
           <>
             <motion.div
@@ -95,43 +117,52 @@ const Navbar: React.FC = () => {
                 position: 'fixed',
                 top: 0,
                 left: 0,
-                width: '100vw',
+                width: '100%',
                 height: '100vh',
-                background: 'rgba(0,0,0,0.6)',
-                backdropFilter: 'blur(10px)',
-                zIndex: 1000
+                background: 'rgba(3, 3, 3, 0.8)',
+                backdropFilter: 'blur(12px)',
+                zIndex: 998
               }}
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
               style={{ 
                 position: 'fixed', 
                 top: 0, 
                 right: 0, 
-                width: 'min(320px, 85vw)', 
+                width: 'min(340px, 85vw)', 
                 height: '100vh', 
                 background: 'var(--bg-dark)', 
-                padding: '8rem 2.5rem 2.5rem', 
+                padding: '8rem 2rem 2rem', 
                 borderLeft: '1px solid var(--glass-border)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '2rem',
-                zIndex: 1001,
-                boxShadow: '-20px 0 60px rgba(0,0,0,0.8)'
+                gap: '1.5rem',
+                zIndex: 999,
+                boxShadow: '-10px 0 50px rgba(0,0,0,0.5)'
               }}
             >
               {['Features', 'How it Works', 'Pricing', 'Testimonials'].map((item, index) => (
                 <motion.a 
                   key={item} 
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * index }}
+                  transition={{ delay: 0.1 + (index * 0.05) }}
                   href={`#${item.toLowerCase().replace(/ /g, '-')}`} 
                   onClick={() => setIsOpen(false)}
-                  style={{ fontSize: '1.25rem', fontWeight: '700', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', color: 'white' }}
+                  style={{ 
+                    fontSize: '1.25rem', 
+                    fontWeight: '700', 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center', 
+                    textDecoration: 'none', 
+                    color: 'white',
+                    padding: '0.5rem 0'
+                  }}
                 >
                   {item} <ChevronRight size={20} color="var(--primary)" />
                 </motion.a>
@@ -139,9 +170,9 @@ const Navbar: React.FC = () => {
               <motion.button 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.4 }}
                 className="btn-premium" 
-                style={{ width: '100%', marginTop: 'auto' }}
+                style={{ width: '100%', marginTop: '2rem' }}
               >
                 Book Demo
               </motion.button>
@@ -164,9 +195,21 @@ const Navbar: React.FC = () => {
         }
         .nav-item:hover::after { width: 100%; }
         
+        .mobile-toggle {
+          display: none;
+          cursor: pointer;
+          flex-direction: column;
+          gap: 6px;
+          width: 30px;
+          height: 24px;
+          justify-content: center;
+          z-index: 1001;
+          position: relative;
+        }
+
         @media (max-width: 1024px) {
           .nav-links { display: none !important; }
-          .mobile-toggle { display: flex !important; align-items: center; justify-content: center; z-index: 102; position: relative; }
+          .mobile-toggle { display: flex !important; }
         }
       `}</style>
     </nav>
