@@ -4,86 +4,64 @@ import { motion } from 'framer-motion';
 
 const features = [
   {
-    icon: <Cpu className="gradient-text" size={32} style={{ color: 'var(--primary)' }} />,
+    icon: <Cpu size={24} style={{ color: 'var(--primary)' }} />,
     title: 'Neural Lead Scoring',
-    description: 'Our proprietary LLM analyzes local market sentiment and property history to predict listing intent.'
+    description: 'Our proprietary LLM analyzes local market sentiment to predict listing intent.'
   },
   {
-    icon: <Rocket className="gradient-text" size={32} style={{ color: 'var(--secondary)' }} />,
+    icon: <Rocket size={24} style={{ color: 'var(--secondary)' }} />,
     title: 'Hyper-Growth Engine',
-    description: 'Scalable infrastructure that handles thousands of concurrent lead nurturing sequences without lag.'
+    description: 'Scalable infrastructure that handles thousands of concurrent lead sequences.'
   },
   {
-    icon: <Globe className="gradient-text" size={32} style={{ color: 'var(--accent)' }} />,
+    icon: <Globe size={24} style={{ color: 'var(--accent)' }} />,
     title: 'Global Data Mesh',
-    description: 'Integrates public records, social signals, and transit data for a 360-degree view of every lead.'
+    description: 'Integrates public records and social signals for a 360-degree view.'
   },
   {
-    icon: <Lock className="gradient-text" size={32} style={{ color: 'var(--primary)' }} />,
+    icon: <Lock size={24} style={{ color: 'var(--primary)' }} />,
     title: 'Encrypted CRM Sync',
-    description: 'Military-grade encryption for your sensitive lead data with 99.9% uptime for all major integrations.'
+    description: 'Military-grade encryption for your sensitive lead data with CRM sync.'
   }
 ];
 
 const Features: React.FC = () => {
   return (
-    <section id="features" style={{ position: 'relative', overflow: 'hidden' }}>
+    <section id="features" style={{ padding: '80px 0' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-          <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            style={{ fontSize: '0.9rem', fontWeight: '700', color: 'var(--primary)', letterSpacing: '0.2em' }}
-          >
-            CUTTING EDGE TECHNOLOGY
-          </motion.span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: '800', marginTop: '1rem' }}
-          >
-            Engineering the <span className="gradient-text">Future of Real Estate</span>
-          </motion.h2>
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <span style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--primary)', letterSpacing: '0.1em' }}>FEATURES</span>
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: '800', marginTop: '1rem' }}>
+            Engineering the <span className="gradient-text">Future</span>
+          </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
           {features.map((feature, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                duration: 0.8, 
-                delay: index * 0.1,
-                ease: [0.23, 1, 0.32, 1]
-              }}
-              whileHover={{ 
-                y: -8,
-                transition: { duration: 0.3, ease: "easeOut" }
-              }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
               className="glass-card"
-              style={{ padding: '2.5rem 2rem', position: 'relative', overflow: 'hidden' }}
+              style={{ padding: '2.5rem 2rem' }}
             >
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: (index * 0.15) + 0.3 }}
-                style={{ 
-                width: '64px', 
-                height: '64px', 
+              <div style={{ 
+                width: '50px', 
+                height: '50px', 
                 background: 'rgba(255,255,255,0.03)', 
-                borderRadius: '16px', 
+                borderRadius: '12px', 
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
-                marginBottom: '2rem',
+                marginBottom: '1.5rem',
                 border: '1px solid var(--glass-border)'
               }}>
                 {feature.icon}
-              </motion.div>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.25rem' }}>{feature.title}</h3>
-              <p style={{ color: 'var(--text-muted)', lineHeight: '1.7' }}>{feature.description}</p>
+              </div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '800', marginBottom: '1rem' }}>{feature.title}</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>{feature.description}</p>
             </motion.div>
           ))}
         </div>

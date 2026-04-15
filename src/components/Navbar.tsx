@@ -18,19 +18,13 @@ const Navbar: React.FC = () => {
       right: 0,
       width: '100%', 
       zIndex: 1000, 
-      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-      padding: scrolled ? '0.75rem 0' : '1.25rem 0',
+      transition: 'all 0.4s ease',
+      padding: scrolled ? '0.75rem 0' : '1.5rem 0',
       background: scrolled ? 'rgba(3, 3, 3, 0.95)' : 'transparent',
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
       borderBottom: scrolled ? '1px solid var(--glass-border)' : '1px solid transparent'
     }}>
-      <div className="container" style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center',
-        position: 'relative',
-        width: '100%'
-      }}>
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: '800', fontSize: '1.25rem', cursor: 'pointer' }}>
@@ -50,7 +44,7 @@ const Navbar: React.FC = () => {
           <span style={{ letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>LeadFlow <span className="gradient-text">AI</span></span>
         </div>
 
-        {/* Links hidden on mobile via CSS class */}
+        {/* Links - We hide them on mobile using a simple CSS class we'll add to index.css */}
         <div className="nav-links-desktop" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
           {['Features', 'How it Works', 'Pricing'].map((item) => (
             <a 
@@ -72,12 +66,6 @@ const Navbar: React.FC = () => {
           </button>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .nav-links-desktop { display: none !important; }
-        }
-      `}</style>
     </nav>
   );
 };
