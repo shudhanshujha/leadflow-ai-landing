@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leadflow-ai.vercel.app/sitemap.xml

@@ -1,0 +1,12 @@
+# LeadFlow AI
+AI-powered real estate lead generation platform.
+
+## Key Features
+- Neural Lead Scoring
+- Hyper-Growth Engine
+- Global Data Mesh
+- Encrypted CRM Sync
+
+## Contact
+Email: contact@leadflowai.com
+Website: https://leadflow-ai.vercel.app/
