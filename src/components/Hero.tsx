@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
       <div className="noise-bg"></div>
 
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' }}>
+        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' }}>
           
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -177,7 +177,7 @@ const Hero: React.FC = () => {
       <style>{`
         @media (max-width: 1024px) {
           section { padding-top: 100px; }
-          div[style*="grid-template-columns: 1.2fr 1fr"] {
+          .hero-grid {
             grid-template-columns: 1fr !important;
             text-align: center;
           }

@@ -37,11 +37,11 @@ const Pricing: React.FC = () => {
       <div className="container">
         
         <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-          <h2 style={{ fontSize: '4rem', fontWeight: '800', marginBottom: '1.5rem' }}>Simple, <span className="gradient-text">Transparent</span> Scaling</h2>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 8vw, 4rem)', fontWeight: '800', marginBottom: '1.5rem' }}>Simple, <span className="gradient-text">Transparent</span> Scaling</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>No hidden setup fees. No long-term lock-ins. Just growth.</p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'stretch' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '3rem', alignItems: 'stretch' }}>
           {plans.map((plan, index) => (
             <motion.div 
               key={index}

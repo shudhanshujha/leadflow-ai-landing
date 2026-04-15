@@ -23,6 +23,9 @@ const Navbar: React.FC = () => {
   return (
     <nav style={{ 
       position: 'fixed', 
+      top: 0,
+      left: 0,
+      right: 0,
       width: '100%', 
       zIndex: 100, 
       transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -31,7 +34,7 @@ const Navbar: React.FC = () => {
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
       borderBottom: scrolled ? '1px solid var(--glass-border)' : '1px solid transparent'
     }}>
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: '800', fontSize: '1.5rem', cursor: 'pointer' }}>

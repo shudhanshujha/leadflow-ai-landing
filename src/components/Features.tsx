@@ -46,24 +46,24 @@ const Features: React.FC = () => {
           </motion.h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '2rem' }}>
           {features.map((feature, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ 
                 duration: 0.8, 
-                delay: index * 0.15,
+                delay: index * 0.1,
                 ease: [0.23, 1, 0.32, 1]
               }}
               whileHover={{ 
-                y: -12,
-                transition: { duration: 0.4, ease: "easeOut" }
+                y: -8,
+                transition: { duration: 0.3, ease: "easeOut" }
               }}
               className="glass-card"
-              style={{ padding: '3.5rem 2.5rem', position: 'relative', overflow: 'hidden' }}
+              style={{ padding: '2.5rem 2rem', position: 'relative', overflow: 'hidden' }}
             >
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8 }}
