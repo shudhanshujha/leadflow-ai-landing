@@ -110,7 +110,7 @@ const Hero: React.FC = () => {
                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '600', letterSpacing: '0.05em' }}>LeadFlow Engine v4.0</div>
                </div>
 
-               <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+               <div className="hero-visual-grid" style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                   <motion.div 
                     animate={{ y: [0, -12, 0] }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
                     <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '600' }}>Response Rate</div>
                     <div style={{ fontSize: '1.75rem', fontWeight: '800', color: 'var(--accent)' }}>+42%</div>
                   </motion.div>
-                  <div className="glass-card" style={{ gridColumn: 'span 2', padding: '2rem', position: 'relative', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  <div className="glass-card hero-pipeline-card" style={{ gridColumn: 'span 2', padding: '2rem', position: 'relative', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)' }}>
                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
                         <div style={{ fontSize: '1rem', fontWeight: '800' }}>Pipeline Growth</div>
                         <div style={{ padding: '4px 12px', background: 'rgba(139, 92, 246, 0.1)', borderRadius: '100px', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -176,16 +176,24 @@ const Hero: React.FC = () => {
 
       <style>{`
         @media (max-width: 1024px) {
-          section { padding-top: 100px; }
+          section { padding: 100px 0 60px !important; }
           .hero-grid {
             grid-template-columns: 1fr !important;
             text-align: center;
+            gap: 3rem !important;
+          }
+          .hero-visual-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .hero-pipeline-card {
+            grid-column: span 1 !important;
           }
           div[style*="max-width: 600px"] { margin: 0 auto 3rem !important; }
-          div[style*="justify-content: center"] { justify-content: center !important; }
-          div[style*="grid-column: span 2"] { grid-column: span 1 !important; }
-          div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-          .container > div { gap: 2rem !important; }
+          div[style*="margin-top: 5rem"] { 
+            margin-top: 3rem !important;
+            justify-content: center !important;
+            gap: 2rem !important;
+          }
         }
       `}</style>
     </section>

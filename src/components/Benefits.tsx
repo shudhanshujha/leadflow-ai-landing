@@ -12,15 +12,15 @@ const Benefits: React.FC = () => {
   return (
     <section id="benefits">
       <div className="container">
-        <div style={{ display: 'flex', gap: '5rem', alignItems: 'center', flexWrap: 'wrap-reverse' }}>
+        <div className="benefits-grid" style={{ display: 'flex', gap: '5rem', alignItems: 'center', flexWrap: 'wrap-reverse' }}>
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
-            style={{ flex: 1, minWidth: '320px' }}
+            style={{ flex: 1, minWidth: 'min(100%, 300px)' }}
           >
-            <div className="glass-card" style={{ width: '100%', minHeight: '450px', padding: '2.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', background: 'rgba(59, 130, 246, 0.03)', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
+            <div className="glass-card" style={{ width: '100%', minHeight: '400px', padding: '2.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', background: 'rgba(59, 130, 246, 0.03)', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
                {/* Decorative Visual */}
                <div style={{ flex: 1, background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid var(--glass-border)', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative', overflow: 'hidden' }}>
                   <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%)' }}></div>
@@ -51,7 +51,7 @@ const Benefits: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
-            style={{ flex: 1.2, minWidth: '320px' }}
+            style={{ flex: 1.2, minWidth: 'min(100%, 300px)' }}
           >
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}

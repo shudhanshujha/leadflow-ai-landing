@@ -55,7 +55,7 @@ const HowItWorks: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+          <div className="how-it-works-steps" style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
             {steps.map((step, index) => (
               <motion.div 
                 key={index}
