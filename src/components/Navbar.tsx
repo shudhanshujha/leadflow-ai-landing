@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Zap, ChevronRight } from 'lucide-react';
+import { Zap, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
@@ -66,8 +66,19 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="mobile-toggle" style={{ display: 'none', cursor: 'pointer' }} onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        <div className="mobile-toggle" style={{ display: 'none', cursor: 'pointer', flexDirection: 'column', gap: '6px', width: '30px', zIndex: 102 }} onClick={() => setIsOpen(!isOpen)}>
+          <motion.span
+            animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 8 : 0 }}
+            style={{ width: '100%', height: '2px', background: 'white', display: 'block', transformOrigin: 'center', willChange: 'transform' }}
+          />
+          <motion.span
+            animate={{ opacity: isOpen ? 0 : 1 }}
+            style={{ width: '100%', height: '2px', background: 'white', display: 'block', willChange: 'opacity' }}
+          />
+          <motion.span
+            animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -8 : 0 }}
+            style={{ width: '100%', height: '2px', background: 'white', display: 'block', transformOrigin: 'center', willChange: 'transform' }}
+          />
         </div>
       </div>
 
