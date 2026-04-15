@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const SocialProof: React.FC = () => {
@@ -31,8 +32,8 @@ const SocialProof: React.FC = () => {
           </motion.div>
           
           {/* Gradient Masks */}
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '150px', height: '100%', background: 'linear-gradient(90deg, var(--bg-dark), transparent)', zIndex: 2 }}></div>
-          <div style={{ position: 'absolute', top: 0, right: 0, width: '150px', height: '100%', background: 'linear-gradient(-90deg, var(--bg-dark), transparent)', zIndex: 2 }}></div>
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100px', height: '100%', background: 'linear-gradient(90deg, var(--bg-dark), transparent)', zIndex: 2 }}></div>
+          <div style={{ position: 'absolute', top: 0, right: 0, width: '100px', height: '100%', background: 'linear-gradient(-90deg, var(--bg-dark), transparent)', zIndex: 2 }}></div>
         </div>
       </div>
     </section>
