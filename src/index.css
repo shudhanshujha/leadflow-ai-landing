@@ -37,6 +37,17 @@ html, body {
   flex-direction: column;
 }
 
+/* Force hide any mobile toggle or menu elements */
+.mobile-toggle, 
+[class*="mobile-toggle"],
+[class*="hamburger"],
+.mobile-menu-overlay {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
