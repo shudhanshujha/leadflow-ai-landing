@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
       borderBottom: scrolled ? '1px solid var(--glass-border)' : '1px solid transparent'
     }}>
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
         
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: '800', fontSize: '1.5rem', cursor: 'pointer' }}>
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="mobile-toggle" style={{ display: 'none', cursor: 'pointer', flexDirection: 'column', gap: '6px', width: '30px', zIndex: 102 }} onClick={() => setIsOpen(!isOpen)}>
+        <div className="mobile-toggle" style={{ display: 'none', cursor: 'pointer', flexDirection: 'column', gap: '6px', width: '30px', zIndex: 1001, position: 'relative' }} onClick={() => setIsOpen(!isOpen)}>
           <motion.span
             animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 8 : 0 }}
             style={{ width: '100%', height: '2px', background: 'white', display: 'block', transformOrigin: 'center', willChange: 'transform' }}
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isOpen && (
           <>
             <motion.div
@@ -97,9 +97,9 @@ const Navbar: React.FC = () => {
                 left: 0,
                 width: '100vw',
                 height: '100vh',
-                background: 'rgba(0,0,0,0.4)',
-                backdropFilter: 'blur(8px)',
-                zIndex: 90
+                background: 'rgba(0,0,0,0.6)',
+                backdropFilter: 'blur(10px)',
+                zIndex: 1000
               }}
             />
             <motion.div
@@ -111,17 +111,16 @@ const Navbar: React.FC = () => {
                 position: 'fixed', 
                 top: 0, 
                 right: 0, 
-                width: '80%', 
-                maxWidth: '400px',
+                width: 'min(320px, 85vw)', 
                 height: '100vh', 
                 background: 'var(--bg-dark)', 
-                padding: '6rem 2rem 2rem', 
+                padding: '8rem 2.5rem 2.5rem', 
                 borderLeft: '1px solid var(--glass-border)',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '2rem',
-                zIndex: 101,
-                boxShadow: '-20px 0 40px rgba(0,0,0,0.5)'
+                zIndex: 1001,
+                boxShadow: '-20px 0 60px rgba(0,0,0,0.8)'
               }}
             >
               {['Features', 'How it Works', 'Pricing', 'Testimonials'].map((item, index) => (
@@ -132,9 +131,9 @@ const Navbar: React.FC = () => {
                   transition={{ delay: 0.1 * index }}
                   href={`#${item.toLowerCase().replace(/ /g, '-')}`} 
                   onClick={() => setIsOpen(false)}
-                  style={{ fontSize: '1.5rem', fontWeight: '700', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', color: 'white' }}
+                  style={{ fontSize: '1.25rem', fontWeight: '700', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', color: 'white' }}
                 >
-                  {item} <ChevronRight size={24} color="var(--primary)" />
+                  {item} <ChevronRight size={20} color="var(--primary)" />
                 </motion.a>
               ))}
               <motion.button 
@@ -144,7 +143,7 @@ const Navbar: React.FC = () => {
                 className="btn-premium" 
                 style={{ width: '100%', marginTop: 'auto' }}
               >
-                Get Started
+                Book Demo
               </motion.button>
             </motion.div>
           </>

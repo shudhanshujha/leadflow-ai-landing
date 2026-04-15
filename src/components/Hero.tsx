@@ -9,8 +9,8 @@ const Hero: React.FC = () => {
   return (
     <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '120px 0 80px' }}>
       {/* Animated Background Blobs */}
-      <div className="blob" style={{ top: '10%', left: '10%', background: 'var(--primary)' }}></div>
-      <div className="blob" style={{ bottom: '10%', right: '10%', background: 'var(--secondary)', animationDelay: '-5s' }}></div>
+      <div className="blob" style={{ top: '10%', left: '10%', background: 'var(--primary)', maxWidth: '90vw' }}></div>
+      <div className="blob" style={{ bottom: '10%', right: '10%', background: 'var(--secondary)', animationDelay: '-5s', maxWidth: '90vw' }}></div>
       <div className="noise-bg"></div>
 
       <div className="container">

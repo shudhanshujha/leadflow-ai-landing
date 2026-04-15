@@ -23,7 +23,7 @@ const HowItWorks: React.FC = () => {
   return (
     <section id="how-it-works" style={{ position: 'relative', background: 'rgba(59, 130, 246, 0.02)', padding: '120px 0' }}>
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '6rem', alignItems: 'center' }}>
+        <div className="how-it-works-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '6rem', alignItems: 'center' }}>
           
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -68,7 +68,7 @@ const HowItWorks: React.FC = () => {
                   ease: [0.23, 1, 0.32, 1]
                 }}
                 whileHover={{ x: 10, transition: { duration: 0.3 } }}
-                className="glass-card"
+                className="glass-card step-card"
                 style={{ display: 'flex', gap: '2.5rem', padding: '3rem', position: 'relative', overflow: 'hidden', border: '1px solid var(--glass-border)' }}
               >
                 <div style={{ 
@@ -110,8 +110,14 @@ const HowItWorks: React.FC = () => {
 
       <style>{`
         @media (max-width: 1024px) {
-          div[style*="grid-template-columns: 1fr 1.5fr"] {
+          .how-it-works-grid {
             grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+          }
+          .step-card {
+            padding: 2rem !important;
+            flex-direction: column !important;
+            gap: 1.5rem !important;
           }
         }
       `}</style>
